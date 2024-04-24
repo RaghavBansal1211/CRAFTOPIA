@@ -1,0 +1,111 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RazerPay Payment Page Clone</title>
+   <style>
+    /* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.payment-form {
+    text-align: center;
+}
+
+.payment-form h2 {
+    margin-bottom: 20px;
+    color: #333;
+
+}
+
+.payment-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.payment-form input[type="text"] {
+    width: calc(100% - 50px); /* Adjust the width */
+    padding: 8px; /* Adjust the padding */
+    margin-bottom: 10px; /* Adjust the margin-bottom */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.card-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-details .card-expiry,
+.card-details .card-cvv {
+    width: 48%;
+}
+
+.payment-form button {
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.payment-form button:hover {
+    background-color: #0056b3;
+}
+body{
+
+background: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fprofitbooks.net%2Fwp-content%2Fuploads%2F2020%2F01%2Ftop-payment-gateway-scaled.jpg&f=1&nofb=1&ipt=32c5d8dd85c296fc22bab30d889d5a072918ee86fcc6637bb4413e98531c5e69&ipo=images");
+background-size: cover;
+}
+   </style>
+</head>
+<body>
+    <div class="bgpay">
+    <div class="container">
+        <div class="payment-form">
+            <h2>Payment Details</h2>
+            <form action="#" method="POST">
+                <label for="name">Name on Card</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="card-number">Card Number</label>
+                <input type="text" id="card-number" name="card-number" required>
+
+                <div class="card-details">
+                    <div class="card-expiry">
+                        <label for="expiry">Expiry Date</label>
+                        <input type="text" id="expiry" name="expiry" placeholder="MM / YY" required>
+                    </div>
+                    <div class="card-cvv">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" required>
+                    </div>
+                </div>
+
+                <button type="submit">Pay Now</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <title>Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .courier-prime-regular {
+            font-family: "Courier Prime", monospace;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .courier-prime-regular-italic {
+            font-family: "Courier Prime", monospace;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .courier-prime-bold {
+            font-family: "Courier Prime", monospace;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .courier-prime-bold-italic {
+            font-family: "Courier Prime", monospace;
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            width: 320px;
+            height: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 5px solid #fff;
+            position: relative;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            border-radius: 15px;
+        }
+
+        .card-body {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: -100%;
+            position: absolute;
+            background: #1f3d4738;
+            backdrop-filter: blur(4px);
+            border-radius: 15px;
+            color: #fff;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: 1s;
+        }
+
+        .card:hover .card-body {
+            right: 0;
+        }
+
+        .card-title {
+            text-transform: uppercase;
+            font-size: 50px;
+            font-weight: 500;
+        }
+
+        .card-sub-title {
+            text-transform: capitalize;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        .card-info {
+            font-size: 16px;
+            line-height: 25px;
+            margin: 40px 0;
+            font-weight: 400;
+        }
+
+        .card-btn {
+            color: black;
+            background: beige;
+            padding: 10px;
+            width: 120px;
+            border-radius: 5px;
+            text-transform: capitalize;
+            border: none;
+            outline: none;
+            font-weight: 500;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <img src="ok.jpg" class="card-img" alt="" />
+        <div class="card-body">
+            <h1 class="card-title">Basket</h1> <br>
+            <p class="card-sub-title">Rs.699</p>
+            <p class="card-info">
+                Handwoven baskets with symbolic hand designs on lids. Store
+                beautifully & celebrate connection. Limited edition, order yours now!
+            </p>
+            <button class="card-btn">More Info</button>
+        </div>
+    </div>
+</body>
+
+</html>

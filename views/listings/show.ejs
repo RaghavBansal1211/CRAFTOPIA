@@ -1,0 +1,105 @@
+<% layout('/layouts/biolerplate') -%>
+
+    <body>
+        <div class="row mt-3 xyz">
+            <div class="col-8 offset-3"> <!-- Adjusted offset for centering -->
+                <h3>   <%=listings.title%> </h3>
+            </div>
+            <div class="card col-6 offset-3 show-card"> <!-- Adjusted column sizes -->
+                <div class="card-body">
+                    <img src="<%=listings.image%>" class="card-img-top show-img" alt="show_image">
+                    <p class="card-text"> <i>
+                           <b>Owned by : </b> <%=listings.owner.username%>
+                        </i>
+                    </p>
+
+
+                    <p class="card-text">
+                        <%=listings.description%></i>
+                    </p>
+                    <p class="card-text"> &#8377;<%=listings.price.toLocaleString("en-In")%>
+                    </p>
+                    <p class="card-text">
+                        <%=listings.location%>
+                    </p>
+
+                </div>
+            </div>
+
+            <% if(curruser && curruser._id.equals(listings.owner._id)){ %>
+                 <div class="btns">
+                <a href="/listings/<%=listings.id%>/edit" class="btn btn-dark col-1 offset-3 edit-btn">Edit</a>
+                <!-- Adjusted column size -->
+                <form method="post" action="/listings/<%=listings.id%>?_method=DELETE">
+                    <button class="btn btn-dark offset-4">Delete</button>
+                </form>
+            </div>
+
+            <%}%>
+
+            <% if(!curruser || !curruser._id.equals(listings.owner._id)){ %>
+                <div class="btns">
+              
+               <form method="get" action="/payments">
+                    <button class="btn btn-dark offset-4">Buy</button>
+                </form>
+           </div>
+
+           <%}%>
+            
+           <div class="col-8 offset-3 mb-3">
+            <hr>
+            <h4>Leave a review</h4>
+            <form method="post" action="/listings/<%=listings.id%>/reviews" novalidate class="needs-validation">
+                <div class="mb-3 mt-3">
+                    <label for="rating" class="form-label" >Rating</labrl>
+                    <input type="range" min="1" max="5" name="rating"  class="form-range form-control" required>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="comment" class="form-label" >Comments</labrl>
+                   <textarea name="review" id="comment" cols="30" rows="5" class="form-control" required></textarea>
+                </div>
+                <button class="btn btn-outline-dark">Submit</button>
+            </form>
+            <hr/>
+            <h4>All reviews</h4>
+            
+           <div class="row">
+            <%for(let review of listings.reviews){%>
+                <div class="card col-5 ms-3 mb-3">
+                 <div class="card-body">
+                     <p class="card-text"><%=review.comment%></p>
+                     <p class="card-text"><%=review.rating%> Stars</p>
+                 </div>
+                </div>
+             <%}%>
+           </div>
+            
+            
+           </div>
+           
+        </div>
+        <script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+
+        </script>
+    </body>
